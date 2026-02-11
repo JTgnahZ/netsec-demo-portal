@@ -33,48 +33,48 @@ const InteractiveGrid = () => {
       const col = Math.floor(x / GRID_SIZE);
       const row = Math.floor(y / GRID_SIZE);
       const key = `${col}-${row}`;
-      setHoveredCells((prev) => {
-        const next = new Set(prev);
-        next.add(key);
-        // Fade out after a delay
-        setTimeout(() => {
-          setHoveredCells((p) => {
-            const n = new Set(p);
-            n.delete(key);
-            return n;
-          });
-        }, 800);
-        return next;
-      });
+      setHoveredCells(new Set([key]));
     },
     []
   );
+
+  const handleMouseLeave = useCallback(() => {
+    setHoveredCells(new Set());
+  }, []);
+
+  // Grid covers top half, fades out by 1/3 of page
+  const gridHeight = rows > 0 ? Math.ceil(rows / 2) : 0;
 
   return (
     <div
       ref={containerRef}
       onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}
       className="absolute inset-0 overflow-hidden pointer-events-auto"
+      style={{
+        maskImage: "linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,0.6) 20%, rgba(0,0,0,0) 33%)",
+        WebkitMaskImage: "linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,0.6) 20%, rgba(0,0,0,0) 33%)",
+      }}
     >
-      {rows > 0 &&
-        Array.from({ length: rows }).map((_, r) =>
+      {gridHeight > 0 &&
+        Array.from({ length: gridHeight }).map((_, r) =>
           Array.from({ length: cols }).map((_, c) => {
             const key = `${c}-${r}`;
             const isActive = hoveredCells.has(key);
             return (
               <div
                 key={key}
-                className="absolute border transition-all duration-500"
+                className="absolute border"
                 style={{
                   left: c * GRID_SIZE,
                   top: r * GRID_SIZE,
                   width: GRID_SIZE,
                   height: GRID_SIZE,
                   borderColor: isActive
-                    ? "hsl(185 80% 55% / 0.25)"
+                    ? "hsl(185 80% 55% / 0.15)"
                     : "hsl(220 14% 16% / 0.3)",
                   backgroundColor: isActive
-                    ? "hsl(185 80% 55% / 0.06)"
+                    ? "hsl(185 80% 55% / 0.04)"
                     : "transparent",
                 }}
               />

@@ -39,7 +39,7 @@ const LogoMarquee = () => {
         <div className="absolute left-0 top-0 w-32 h-full bg-gradient-to-r from-background to-transparent z-10" />
         <div className="absolute right-0 top-0 w-32 h-full bg-gradient-to-l from-background to-transparent z-10" />
         <div className="flex animate-marquee whitespace-nowrap">
-          {[...shuffled, ...shuffled, ...shuffled, ...shuffled, ...shuffled, ...shuffled].map((item, i) => (
+          {[...shuffled, ...shuffled].map((item, i) => (
             <div
               key={i}
               className="inline-flex items-center justify-center mx-10 text-muted-foreground/40 text-lg font-semibold tracking-wide select-none"

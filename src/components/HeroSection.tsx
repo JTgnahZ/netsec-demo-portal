@@ -1,4 +1,4 @@
-import { useEffect, useState, useRef, useCallback } from "react";
+import { useEffect, useState, useRef, useCallback, useMemo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight, ShieldCheck, Lock, Zap } from "lucide-react";
 
@@ -85,6 +85,43 @@ const InteractiveGrid = () => {
   );
 };
 
+const gradientStops = [
+  "linear-gradient(90deg, hsl(185 80% 55%), hsl(220 70% 55%))",
+  "linear-gradient(90deg, hsl(260 60% 60%), hsl(185 80% 55%))",
+  "linear-gradient(90deg, hsl(220 70% 55%), hsl(260 60% 60%))",
+  "linear-gradient(90deg, hsl(185 80% 55%), hsl(260 60% 55%), hsl(185 80% 55%))",
+];
+
+const DecisiveText = () => {
+  const [gradientIndex, setGradientIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setGradientIndex((prev) => (prev + 1) % gradientStops.length);
+    }, 2000);
+    return () => clearInterval(interval);
+  }, []);
+
+  return (
+    <motion.span
+      className="inline-block"
+      style={{
+        backgroundImage: gradientStops[gradientIndex],
+        WebkitBackgroundClip: "text",
+        WebkitTextFillColor: "transparent",
+        backgroundClip: "text",
+        transition: "background-image 1s ease",
+      }}
+      animate={{
+        backgroundImage: gradientStops[gradientIndex],
+      }}
+      transition={{ duration: 1.5, ease: "easeInOut" }}
+    >
+      decisive
+    </motion.span>
+  );
+};
+
 const HeroSection = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
@@ -137,11 +174,29 @@ const HeroSection = () => {
                 </motion.span>
               </AnimatePresence>
             </span>
-            <span className="text-foreground">made </span><span className="text-primary">decisive</span>
+            <span className="text-foreground">made </span>
+            <span className="relative inline-block">
+              {/* Bounding box frame */}
+              <span className="absolute -inset-x-4 -inset-y-2 pointer-events-none">
+                {/* Top border */}
+                <span className="absolute top-0 left-0 right-0 h-[2px] bg-border" />
+                {/* Bottom border */}
+                <span className="absolute bottom-0 left-0 right-0 h-[2px] bg-primary" />
+                {/* Left border */}
+                <span className="absolute top-0 left-0 bottom-0 w-[2px] bg-border" />
+                {/* Right border */}
+                <span className="absolute top-0 right-0 bottom-0 w-[2px] bg-muted-foreground/40" />
+                {/* Corner handles */}
+                <span className="absolute -top-1.5 -left-1.5 w-3 h-3 border-2 border-muted-foreground/60 bg-background" />
+                <span className="absolute -top-1.5 -right-1.5 w-3 h-3 border-2 border-muted-foreground/60 bg-background" />
+                <span className="absolute -bottom-1.5 -left-1.5 w-3 h-3 border-2 border-primary bg-background" />
+                <span className="absolute -bottom-1.5 -right-1.5 w-3 h-3 border-2 border-muted-foreground/60 bg-background" />
+              </span>
+              <DecisiveText />
+            </span>
           </h1>
         </motion.div>
 
-        {/* Decorative frame around rotating word - like AttendFlow's bounding box */}
         {/* Subtitle */}
         <motion.p
           initial={{ opacity: 0, y: 20 }}

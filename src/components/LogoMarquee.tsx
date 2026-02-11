@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { useMemo } from "react";
 
 const items = [
   "Secure AI by Design", "Secure AI Ecosystem", "Secure GenAI Usage",
@@ -13,7 +14,17 @@ const items = [
   "Branch & SD-WAN", "Autonomous Digital Experience Management",
 ];
 
+function shuffle<T>(arr: T[]): T[] {
+  const a = [...arr];
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
+}
+
 const LogoMarquee = () => {
+  const shuffled = useMemo(() => shuffle(items), []);
   return (
     <section className="py-16 border-t border-b border-border/50 overflow-hidden">
       <motion.p
@@ -28,7 +39,7 @@ const LogoMarquee = () => {
         <div className="absolute left-0 top-0 w-32 h-full bg-gradient-to-r from-background to-transparent z-10" />
         <div className="absolute right-0 top-0 w-32 h-full bg-gradient-to-l from-background to-transparent z-10" />
         <div className="flex animate-marquee whitespace-nowrap">
-          {[...items, ...items, ...items, ...items, ...items, ...items].map((item, i) => (
+          {[...shuffled, ...shuffled, ...shuffled, ...shuffled, ...shuffled, ...shuffled].map((item, i) => (
             <div
               key={i}
               className="inline-flex items-center justify-center mx-10 text-muted-foreground/40 text-lg font-semibold tracking-wide select-none"

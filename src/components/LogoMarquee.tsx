@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { useMemo } from "react";
+import { useState, useCallback } from "react";
 
 const items = [
   "Secure AI by Design", "Secure AI Ecosystem", "Secure GenAI Usage",
@@ -24,7 +24,14 @@ function shuffle<T>(arr: T[]): T[] {
 }
 
 const LogoMarquee = () => {
-  const shuffled = useMemo(() => shuffle(items), []);
+  const [shuffled, setShuffled] = useState(() => shuffle(items));
+
+  const handleLoopComplete = useCallback(() => {
+    setShuffled(shuffle(items));
+  }, []);
+
+  const list = [...shuffled, ...shuffled];
+
   return (
     <section className="py-16 border-t border-b border-border/50 overflow-hidden">
       <motion.p
@@ -38,16 +45,29 @@ const LogoMarquee = () => {
       <div className="relative">
         <div className="absolute left-0 top-0 w-32 h-full bg-gradient-to-r from-background to-transparent z-10" />
         <div className="absolute right-0 top-0 w-32 h-full bg-gradient-to-l from-background to-transparent z-10" />
-        <div className="flex animate-marquee whitespace-nowrap">
-          {shuffled.map((item, i) => (
+        <motion.div
+          className="flex whitespace-nowrap"
+          animate={{ x: [0, "-50%"] }}
+          transition={{
+            x: {
+              duration: 15,
+              ease: "linear",
+              repeat: Infinity,
+              repeatType: "loop",
+            },
+          }}
+          onAnimationComplete={handleLoopComplete}
+          style={{ willChange: "transform" }}
+        >
+          {list.map((item, i) => (
             <div
-              key={i}
+              key={`${item}-${i}`}
               className="inline-flex items-center justify-center mx-10 text-muted-foreground/40 text-lg font-semibold tracking-wide select-none"
             >
               {item}
             </div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

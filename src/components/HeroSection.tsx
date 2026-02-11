@@ -365,9 +365,9 @@ const HeroSection = () => {
           className="flex flex-wrap justify-center gap-8 mt-16 pointer-events-auto"
         >
           {[
-            { icon: Lock, label: "Zero-Trust Architecture", value: "100%" },
-            { icon: Zap, label: "Faster Threat Response", value: "10x" },
-            { icon: ShieldCheck, label: "Enterprise Clients", value: "500+" },
+            { icon: Lock, label: "Customers worldwide deliver a global network effect of threat intelligence", value: "70K" },
+            { icon: Zap, label: "Faster prevention of threats compared to the average competitor", value: "180X" },
+            { icon: ShieldCheck, label: "New Zero-Day threats prevented everyday", value: "8.95M" },
           ].map((stat) => (
             <div key={stat.label} className="flex items-center gap-3 px-5 py-3 rounded-xl bg-glass glow-border">
               <stat.icon className="w-5 h-5 text-primary" />

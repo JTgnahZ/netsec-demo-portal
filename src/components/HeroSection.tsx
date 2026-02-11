@@ -111,44 +111,44 @@ const InteractiveGrid = () => {
       className="absolute inset-0 overflow-hidden pointer-events-auto"
       style={{
         maskImage: "linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,0.5) 25%, rgba(0,0,0,0) 40%)",
-        WebkitMaskImage: "linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,0.5) 25%, rgba(0,0,0,0) 40%)",
-      }}
-    >
+        WebkitMaskImage: "linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,0.5) 25%, rgba(0,0,0,0) 40%)"
+      }}>
+
       {gridHeight > 0 &&
-        Array.from({ length: gridHeight }).map((_, r) =>
-          Array.from({ length: cols }).map((_, c) => {
-            const key = `${c}-${r}`;
-            const isHovered = hoveredCell === key;
-            const rippleOp = rippleOpacities.get(key) || 0;
-            return (
-              <div
-                key={key}
-                className="absolute border"
-                style={{
-                  left: c * GRID_SIZE,
-                  top: r * GRID_SIZE,
-                  width: GRID_SIZE,
-                  height: GRID_SIZE,
-                  borderColor: isHovered
-                    ? "hsl(185 80% 55% / 0.15)"
-                    : rippleOp > 0
-                    ? `hsl(185 80% 55% / ${(rippleOp * 0.25).toFixed(3)})`
-                    : "hsl(220 14% 16% / 0.3)",
-                  backgroundColor: isHovered
-                    ? "hsl(185 80% 55% / 0.04)"
-                    : rippleOp > 0
-                    ? `hsl(185 80% 55% / ${(rippleOp * 0.08).toFixed(3)})`
-                    : "transparent",
-                }}
-              />
-            );
-          })
-        )}
-    </div>
-  );
+      Array.from({ length: gridHeight }).map((_, r) =>
+      Array.from({ length: cols }).map((_, c) => {
+        const key = `${c}-${r}`;
+        const isHovered = hoveredCell === key;
+        const rippleOp = rippleOpacities.get(key) || 0;
+        return (
+          <div
+            key={key}
+            className="absolute border"
+            style={{
+              left: c * GRID_SIZE,
+              top: r * GRID_SIZE,
+              width: GRID_SIZE,
+              height: GRID_SIZE,
+              borderColor: isHovered ?
+              "hsl(185 80% 55% / 0.15)" :
+              rippleOp > 0 ?
+              `hsl(185 80% 55% / ${(rippleOp * 0.25).toFixed(3)})` :
+              "hsl(220 14% 16% / 0.3)",
+              backgroundColor: isHovered ?
+              "hsl(185 80% 55% / 0.04)" :
+              rippleOp > 0 ?
+              `hsl(185 80% 55% / ${(rippleOp * 0.08).toFixed(3)})` :
+              "transparent"
+            }} />);
+
+
+      })
+      )}
+    </div>);
+
 };
 
-const HeroButton = ({ href, variant, children }: { href: string; variant: "filled" | "outline"; children: React.ReactNode }) => {
+const HeroButton = ({ href, variant, children }: {href: string;variant: "filled" | "outline";children: React.ReactNode;}) => {
   const [isHovered, setIsHovered] = useState(false);
   const [hue, setHue] = useState(185);
 
@@ -178,38 +178,38 @@ const HeroButton = ({ href, variant, children }: { href: string; variant: "fille
 
   const baseClasses = "group flex items-center justify-center gap-3 px-14 py-7 rounded-2xl font-bold text-2xl transition-all duration-300";
 
-  const dynamicStyle: React.CSSProperties = isHovered
-    ? {
-        background: `linear-gradient(90deg, hsl(${hue} 80% 55%), hsl(${(hue + 60) % 360} 70% 55%))`,
-        color: "hsl(220 20% 4%)",
-        boxShadow: `0 0 50px -10px hsl(${hue} 80% 55% / 0.5), 0 0 100px -20px hsl(${hue} 80% 55% / 0.25)`,
-        borderColor: "transparent",
-      }
-    : {};
+  const dynamicStyle: React.CSSProperties = isHovered ?
+  {
+    background: `linear-gradient(90deg, hsl(${hue} 80% 55%), hsl(${(hue + 60) % 360} 70% 55%))`,
+    color: "hsl(220 20% 4%)",
+    boxShadow: `0 0 50px -10px hsl(${hue} 80% 55% / 0.5), 0 0 100px -20px hsl(${hue} 80% 55% / 0.25)`,
+    borderColor: "transparent"
+  } :
+  {};
 
   return (
     <a
       href={href}
       onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => { setIsHovered(false); setHue(185); }}
+      onMouseLeave={() => {setIsHovered(false);setHue(185);}}
       className={`${baseClasses} ${
-        variant === "filled"
-          ? "bg-primary text-primary-foreground glow-primary"
-          : "border-2 border-border text-foreground bg-secondary/50"
-      }`}
-      style={dynamicStyle}
-    >
+      variant === "filled" ?
+      "bg-primary text-primary-foreground glow-primary" :
+      "border-2 border-border text-foreground bg-secondary/50"}`
+      }
+      style={dynamicStyle}>
+
       {children}
-    </a>
-  );
+    </a>);
+
 };
 
 const gradientStops = [
-  "linear-gradient(90deg, hsl(185 80% 55%), hsl(220 70% 55%))",
-  "linear-gradient(90deg, hsl(260 60% 60%), hsl(185 80% 55%))",
-  "linear-gradient(90deg, hsl(220 70% 55%), hsl(260 60% 60%))",
-  "linear-gradient(90deg, hsl(185 80% 55%), hsl(260 60% 55%), hsl(185 80% 55%))",
-];
+"linear-gradient(90deg, hsl(185 80% 55%), hsl(220 70% 55%))",
+"linear-gradient(90deg, hsl(260 60% 60%), hsl(185 80% 55%))",
+"linear-gradient(90deg, hsl(220 70% 55%), hsl(260 60% 60%))",
+"linear-gradient(90deg, hsl(185 80% 55%), hsl(260 60% 55%), hsl(185 80% 55%))"];
+
 
 const DecisiveText = () => {
   const [hue, setHue] = useState(185);
@@ -224,7 +224,7 @@ const DecisiveText = () => {
       if (!start) start = timestamp;
       const elapsed = (timestamp - start) % duration;
       const progress = elapsed / duration;
-      
+
       // Interpolate through hue stops
       const segCount = hues.length - 1;
       const segProgress = progress * segCount;
@@ -233,7 +233,7 @@ const DecisiveText = () => {
       const fromHue = hues[Math.min(segIndex, segCount)];
       const toHue = hues[Math.min(segIndex + 1, segCount)];
       setHue(fromHue + (toHue - fromHue) * segFrac);
-      
+
       frame = requestAnimationFrame(animate);
     };
     frame = requestAnimationFrame(animate);
@@ -247,12 +247,12 @@ const DecisiveText = () => {
         backgroundImage: `linear-gradient(90deg, hsl(${hue} 80% 55%), hsl(${(hue + 60) % 360} 70% 55%))`,
         WebkitBackgroundClip: "text",
         WebkitTextFillColor: "transparent",
-        backgroundClip: "text",
-      }}
-    >
+        backgroundClip: "text"
+      }}>
+
       decisive
-    </span>
-  );
+    </span>);
+
 };
 
 const HeroSection = () => {
@@ -280,18 +280,18 @@ const HeroSection = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.2 }}
-          className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-glass glow-border mb-8 pointer-events-auto"
-        >
+          className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-glass glow-border mb-8 pointer-events-auto">
+
           <ShieldCheck className="w-4 h-4 text-primary" />
-          <span className="text-sm text-muted-foreground">Enterprise Security • Executive Briefing Center</span>
+          <span className="text-sm text-muted-foreground">Network Security • Executive Briefing Center</span>
         </motion.div>
 
         {/* Main headline with rotating text */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.4 }}
-        >
+          transition={{ duration: 0.7, delay: 0.4 }}>
+
           <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-extrabold leading-[1.1] tracking-tight mb-6">
             <span className="block mb-2 min-h-[1.2em]">
               <AnimatePresence mode="wait">
@@ -301,8 +301,8 @@ const HeroSection = () => {
                   animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
                   exit={{ opacity: 0, y: -30, filter: "blur(8px)" }}
                   transition={{ duration: 0.5 }}
-                  className="inline-block text-primary"
-                >
+                  className="inline-block text-primary">
+
                   {rotatingWords[currentIndex]}
                 </motion.span>
               </AnimatePresence>
@@ -335,8 +335,8 @@ const HeroSection = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.6 }}
-          className="text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto mb-10 leading-relaxed"
-        >
+          className="text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto mb-10 leading-relaxed">
+
           Explore real-world solutions, proven outcomes, and the future of enterprise
           network defense — all in one interactive demo portal.
         </motion.p>
@@ -346,10 +346,11 @@ const HeroSection = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.8 }}
-          className="flex flex-col sm:flex-row items-center justify-center gap-6 pointer-events-auto"
-        >
+          className="flex flex-col sm:flex-row items-center justify-center gap-6 pointer-events-auto">
+
           <HeroButton href="#value" variant="filled">
             Value Delivered
+            <ArrowRight className="w-6 h-6 group-hover:translate-x-1 transition-transform" />
           </HeroButton>
           <HeroButton href="#vision" variant="filled">
             Vision Delivering
@@ -361,25 +362,25 @@ const HeroSection = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 1.0 }}
-          className="grid grid-cols-1 sm:grid-cols-3 gap-6 mt-16 pointer-events-auto max-w-4xl mx-auto"
-        >
+          className="flex flex-wrap justify-center gap-8 mt-16 pointer-events-auto">
+
           {[
-            { icon: Lock, label: "Customers worldwide deliver a global network effect of threat intelligence", value: "70K" },
-            { icon: Zap, label: "Faster prevention of threats compared to the average competitor", value: "180X" },
-            { icon: ShieldCheck, label: "New Zero-Day threats prevented everyday", value: "8.95M" },
-          ].map((stat) => (
-            <div key={stat.label} className="flex items-center gap-3 px-5 py-3 rounded-xl bg-glass glow-border">
-              <stat.icon className="w-5 h-5 text-primary shrink-0" />
-              <div className="text-left min-w-0">
+          { icon: Lock, label: "Zero-Trust Architecture", value: "100%" },
+          { icon: Zap, label: "Faster Threat Response", value: "10x" },
+          { icon: ShieldCheck, label: "Enterprise Clients", value: "500+" }].
+          map((stat) =>
+          <div key={stat.label} className="flex items-center gap-3 px-5 py-3 rounded-xl bg-glass glow-border">
+              <stat.icon className="w-5 h-5 text-primary" />
+              <div className="text-left">
                 <div className="text-lg font-bold text-foreground">{stat.value}</div>
-                <div className="text-xs text-muted-foreground leading-snug">{stat.label}</div>
+                <div className="text-xs text-muted-foreground">{stat.label}</div>
               </div>
             </div>
-          ))}
+          )}
         </motion.div>
       </div>
-    </section>
-  );
+    </section>);
+
 };
 
 export default HeroSection;

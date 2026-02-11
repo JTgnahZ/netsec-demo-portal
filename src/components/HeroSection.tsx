@@ -6,11 +6,19 @@ const rotatingWords = ["Prisma SASE", "NGFW", "AIRS", "CDSS", "Quantum Security"
 
 const GRID_SIZE = 40;
 
+interface RippleCell {
+  col: number;
+  row: number;
+  time: number;
+}
+
 const InteractiveGrid = () => {
   const containerRef = useRef<HTMLDivElement>(null);
-  const [hoveredCells, setHoveredCells] = useState<Set<string>>(new Set());
+  const [hoveredCell, setHoveredCell] = useState<string | null>(null);
   const [cols, setCols] = useState(0);
   const [rows, setRows] = useState(0);
+  const [ripples, setRipples] = useState<RippleCell[]>([]);
+  const rippleFrameRef = useRef<number>(0);
 
   useEffect(() => {
     const update = () => {
@@ -24,25 +32,74 @@ const InteractiveGrid = () => {
     return () => window.removeEventListener("resize", update);
   }, []);
 
-  const handleMouseMove = useCallback(
-    (e: React.MouseEvent) => {
-      if (!containerRef.current) return;
-      const rect = containerRef.current.getBoundingClientRect();
-      const x = e.clientX - rect.left;
-      const y = e.clientY - rect.top;
-      const col = Math.floor(x / GRID_SIZE);
-      const row = Math.floor(y / GRID_SIZE);
-      const key = `${col}-${row}`;
-      setHoveredCells(new Set([key]));
-    },
-    []
-  );
+  // Ripple animation loop
+  const [rippleOpacities, setRippleOpacities] = useState<Map<string, number>>(new Map());
 
-  const handleMouseLeave = useCallback(() => {
-    setHoveredCells(new Set());
+  useEffect(() => {
+    if (ripples.length === 0) {
+      setRippleOpacities(new Map());
+      return;
+    }
+
+    const animate = () => {
+      const now = performance.now();
+      const newMap = new Map<string, number>();
+      const alive: RippleCell[] = [];
+
+      for (const ripple of ripples) {
+        const elapsed = now - ripple.time;
+        const speed = 120; // ms per grid cell
+        const maxDist = 4;
+        const currentRadius = elapsed / speed;
+
+        if (currentRadius > maxDist + 1) continue;
+        alive.push(ripple);
+
+        // Light up cells in a circle
+        for (let dr = -maxDist; dr <= maxDist; dr++) {
+          for (let dc = -maxDist; dc <= maxDist; dc++) {
+            const dist = Math.sqrt(dr * dr + dc * dc);
+            if (dist > currentRadius || dist < currentRadius - 1.2) continue;
+            const opacity = Math.max(0, 1 - dist / maxDist) * Math.max(0, 1 - (currentRadius - dist) / 1.2);
+            const cr = ripple.row + dr;
+            const cc = ripple.col + dc;
+            const key = `${cc}-${cr}`;
+            newMap.set(key, Math.max(newMap.get(key) || 0, opacity));
+          }
+        }
+      }
+
+      setRippleOpacities(newMap);
+      if (alive.length < ripples.length) setRipples(alive);
+      if (alive.length > 0) {
+        rippleFrameRef.current = requestAnimationFrame(animate);
+      }
+    };
+
+    rippleFrameRef.current = requestAnimationFrame(animate);
+    return () => cancelAnimationFrame(rippleFrameRef.current);
+  }, [ripples]);
+
+  const handleMouseMove = useCallback((e: React.MouseEvent) => {
+    if (!containerRef.current) return;
+    const rect = containerRef.current.getBoundingClientRect();
+    const col = Math.floor((e.clientX - rect.left) / GRID_SIZE);
+    const row = Math.floor((e.clientY - rect.top) / GRID_SIZE);
+    setHoveredCell(`${col}-${row}`);
   }, []);
 
-  // Grid covers top half, fades out by 1/3 of page
+  const handleMouseLeave = useCallback(() => {
+    setHoveredCell(null);
+  }, []);
+
+  const handleClick = useCallback((e: React.MouseEvent) => {
+    if (!containerRef.current) return;
+    const rect = containerRef.current.getBoundingClientRect();
+    const col = Math.floor((e.clientX - rect.left) / GRID_SIZE);
+    const row = Math.floor((e.clientY - rect.top) / GRID_SIZE);
+    setRipples((prev) => [...prev, { col, row, time: performance.now() }]);
+  }, []);
+
   const gridHeight = rows > 0 ? Math.ceil(rows / 2) : 0;
 
   return (
@@ -50,17 +107,19 @@ const InteractiveGrid = () => {
       ref={containerRef}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
+      onClick={handleClick}
       className="absolute inset-0 overflow-hidden pointer-events-auto"
       style={{
-        maskImage: "linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,0.6) 20%, rgba(0,0,0,0) 33%)",
-        WebkitMaskImage: "linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,0.6) 20%, rgba(0,0,0,0) 33%)",
+        maskImage: "linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,0.5) 25%, rgba(0,0,0,0) 40%)",
+        WebkitMaskImage: "linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,0.5) 25%, rgba(0,0,0,0) 40%)",
       }}
     >
       {gridHeight > 0 &&
         Array.from({ length: gridHeight }).map((_, r) =>
           Array.from({ length: cols }).map((_, c) => {
             const key = `${c}-${r}`;
-            const isActive = hoveredCells.has(key);
+            const isHovered = hoveredCell === key;
+            const rippleOp = rippleOpacities.get(key) || 0;
             return (
               <div
                 key={key}
@@ -70,11 +129,15 @@ const InteractiveGrid = () => {
                   top: r * GRID_SIZE,
                   width: GRID_SIZE,
                   height: GRID_SIZE,
-                  borderColor: isActive
+                  borderColor: isHovered
                     ? "hsl(185 80% 55% / 0.15)"
+                    : rippleOp > 0
+                    ? `hsl(185 80% 55% / ${(rippleOp * 0.25).toFixed(3)})`
                     : "hsl(220 14% 16% / 0.3)",
-                  backgroundColor: isActive
+                  backgroundColor: isHovered
                     ? "hsl(185 80% 55% / 0.04)"
+                    : rippleOp > 0
+                    ? `hsl(185 80% 55% / ${(rippleOp * 0.08).toFixed(3)})`
                     : "transparent",
                 }}
               />

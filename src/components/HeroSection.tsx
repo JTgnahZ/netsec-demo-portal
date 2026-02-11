@@ -1,6 +1,6 @@
 import { useEffect, useState, useRef, useCallback, useMemo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowRight, ShieldCheck, Lock, Zap } from "lucide-react";
+import { ShieldCheck, Lock, Zap } from "lucide-react";
 
 const rotatingWords = ["Prisma SASE", "NGFW", "AIRS", "CDSS", "Quantum Security", "Network Security"];
 
@@ -350,7 +350,7 @@ const HeroSection = () => {
 
           <HeroButton href="#value" variant="filled">
             Value Delivered
-            <ArrowRight className="w-6 h-6 group-hover:translate-x-1 transition-transform" />
+            
           </HeroButton>
           <HeroButton href="#vision" variant="filled">
             Vision Delivering

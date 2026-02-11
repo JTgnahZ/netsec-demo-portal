@@ -93,32 +93,46 @@ const gradientStops = [
 ];
 
 const DecisiveText = () => {
-  const [gradientIndex, setGradientIndex] = useState(0);
+  const [hue, setHue] = useState(185);
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setGradientIndex((prev) => (prev + 1) % gradientStops.length);
-    }, 2000);
-    return () => clearInterval(interval);
+    let frame: number;
+    let start: number | null = null;
+    const duration = 6000; // full cycle in ms
+    const hues = [185, 220, 260, 300, 220, 185]; // smooth loop
+
+    const animate = (timestamp: number) => {
+      if (!start) start = timestamp;
+      const elapsed = (timestamp - start) % duration;
+      const progress = elapsed / duration;
+      
+      // Interpolate through hue stops
+      const segCount = hues.length - 1;
+      const segProgress = progress * segCount;
+      const segIndex = Math.floor(segProgress);
+      const segFrac = segProgress - segIndex;
+      const fromHue = hues[Math.min(segIndex, segCount)];
+      const toHue = hues[Math.min(segIndex + 1, segCount)];
+      setHue(fromHue + (toHue - fromHue) * segFrac);
+      
+      frame = requestAnimationFrame(animate);
+    };
+    frame = requestAnimationFrame(animate);
+    return () => cancelAnimationFrame(frame);
   }, []);
 
   return (
-    <motion.span
+    <span
       className="inline-block"
       style={{
-        backgroundImage: gradientStops[gradientIndex],
+        backgroundImage: `linear-gradient(90deg, hsl(${hue} 80% 55%), hsl(${(hue + 60) % 360} 70% 55%))`,
         WebkitBackgroundClip: "text",
         WebkitTextFillColor: "transparent",
         backgroundClip: "text",
-        transition: "background-image 1s ease",
       }}
-      animate={{
-        backgroundImage: gradientStops[gradientIndex],
-      }}
-      transition={{ duration: 1.5, ease: "easeInOut" }}
     >
       decisive
-    </motion.span>
+    </span>
   );
 };
 

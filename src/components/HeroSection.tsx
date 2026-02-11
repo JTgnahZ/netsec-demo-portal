@@ -352,7 +352,7 @@ const HeroSection = () => {
             Value Delivered
             <ArrowRight className="w-6 h-6 group-hover:translate-x-1 transition-transform" />
           </HeroButton>
-          <HeroButton href="#vision" variant="outline">
+          <HeroButton href="#vision" variant="filled">
             Vision Delivering
           </HeroButton>
         </motion.div>

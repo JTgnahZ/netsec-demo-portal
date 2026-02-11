@@ -362,7 +362,7 @@ const HeroSection = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 1.0 }}
-          className="flex flex-wrap justify-center gap-8 mt-16 pointer-events-auto">
+          className="grid grid-cols-1 sm:grid-cols-3 gap-6 mt-16 pointer-events-auto max-w-4xl mx-auto">
 
           {[
           { icon: Lock, label: "Zero-Trust Architecture", value: "100%" },
@@ -370,10 +370,10 @@ const HeroSection = () => {
           { icon: ShieldCheck, label: "Enterprise Clients", value: "500+" }].
           map((stat) =>
           <div key={stat.label} className="flex items-center gap-3 px-5 py-3 rounded-xl bg-glass glow-border">
-              <stat.icon className="w-5 h-5 text-primary" />
-              <div className="text-left">
+              <stat.icon className="w-5 h-5 text-primary shrink-0" />
+              <div className="text-left min-w-0">
                 <div className="text-lg font-bold text-foreground">{stat.value}</div>
-                <div className="text-xs text-muted-foreground">{stat.label}</div>
+                <div className="text-xs text-muted-foreground leading-snug">{stat.label}</div>
               </div>
             </div>
           )}

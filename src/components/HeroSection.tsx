@@ -122,8 +122,8 @@ const HeroSection = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.4 }}
         >
-          <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-extrabold leading-[0.95] tracking-tight mb-6">
-            <span className="text-gradient-light block mb-2">
+          <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-extrabold leading-[1.1] tracking-tight mb-6">
+            <span className="block mb-2 text-foreground">
               <AnimatePresence mode="wait">
                 <motion.span
                   key={rotatingWords[currentIndex]}
@@ -131,13 +131,13 @@ const HeroSection = () => {
                   animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
                   exit={{ opacity: 0, y: -30, filter: "blur(8px)" }}
                   transition={{ duration: 0.5 }}
-                  className="inline-block"
+                  className="inline-block text-primary"
                 >
                   {rotatingWords[currentIndex]}
                 </motion.span>
               </AnimatePresence>
             </span>
-            <span className="text-gradient-primary">made decisive</span>
+            <span className="text-foreground">made </span><span className="text-primary">decisive</span>
           </h1>
         </motion.div>
 

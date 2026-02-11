@@ -148,6 +148,62 @@ const InteractiveGrid = () => {
   );
 };
 
+const HeroButton = ({ href, variant, children }: { href: string; variant: "filled" | "outline"; children: React.ReactNode }) => {
+  const [isHovered, setIsHovered] = useState(false);
+  const [hue, setHue] = useState(185);
+
+  useEffect(() => {
+    if (!isHovered) return;
+    let frame: number;
+    let start: number | null = null;
+    const duration = 4000;
+    const hues = [185, 220, 260, 300, 220, 185];
+
+    const animate = (timestamp: number) => {
+      if (!start) start = timestamp;
+      const elapsed = (timestamp - start) % duration;
+      const progress = elapsed / duration;
+      const segCount = hues.length - 1;
+      const segProgress = progress * segCount;
+      const segIndex = Math.floor(segProgress);
+      const segFrac = segProgress - segIndex;
+      const fromHue = hues[Math.min(segIndex, segCount)];
+      const toHue = hues[Math.min(segIndex + 1, segCount)];
+      setHue(fromHue + (toHue - fromHue) * segFrac);
+      frame = requestAnimationFrame(animate);
+    };
+    frame = requestAnimationFrame(animate);
+    return () => cancelAnimationFrame(frame);
+  }, [isHovered]);
+
+  const baseClasses = "group flex items-center justify-center gap-3 px-14 py-7 rounded-2xl font-bold text-2xl transition-all duration-300";
+
+  const dynamicStyle: React.CSSProperties = isHovered
+    ? {
+        background: `linear-gradient(90deg, hsl(${hue} 80% 55%), hsl(${(hue + 60) % 360} 70% 55%))`,
+        color: "hsl(220 20% 4%)",
+        boxShadow: `0 0 50px -10px hsl(${hue} 80% 55% / 0.5), 0 0 100px -20px hsl(${hue} 80% 55% / 0.25)`,
+        borderColor: "transparent",
+      }
+    : {};
+
+  return (
+    <a
+      href={href}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => { setIsHovered(false); setHue(185); }}
+      className={`${baseClasses} ${
+        variant === "filled"
+          ? "bg-primary text-primary-foreground glow-primary"
+          : "border-2 border-border text-foreground bg-secondary/50"
+      }`}
+      style={dynamicStyle}
+    >
+      {children}
+    </a>
+  );
+};
+
 const gradientStops = [
   "linear-gradient(90deg, hsl(185 80% 55%), hsl(220 70% 55%))",
   "linear-gradient(90deg, hsl(260 60% 60%), hsl(185 80% 55%))",
@@ -290,21 +346,15 @@ const HeroSection = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.8 }}
-          className="flex flex-col sm:flex-row items-center justify-center gap-4 pointer-events-auto"
+          className="flex flex-col sm:flex-row items-center justify-center gap-6 pointer-events-auto"
         >
-          <a
-            href="#value"
-            className="group flex items-center gap-2 px-8 py-4 rounded-xl bg-primary text-primary-foreground font-semibold text-lg hover:opacity-90 transition-all glow-primary"
-          >
+          <HeroButton href="#value" variant="filled">
             Value Delivered
-            <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-          </a>
-          <a
-            href="#vision"
-            className="flex items-center gap-2 px-8 py-4 rounded-xl border border-border text-foreground font-semibold text-lg hover:bg-secondary transition-colors"
-          >
+            <ArrowRight className="w-6 h-6 group-hover:translate-x-1 transition-transform" />
+          </HeroButton>
+          <HeroButton href="#vision" variant="outline">
             Vision Delivering
-          </a>
+          </HeroButton>
         </motion.div>
 
         {/* Stats row */}

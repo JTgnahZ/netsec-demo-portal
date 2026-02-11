@@ -11,7 +11,7 @@ const Footer = () => {
           </span>
         </div>
         <p className="text-xs text-muted-foreground">
-          © {new Date().getFullYear()} NetSec EBC. Confidential — for executive briefing purposes only.
+          © {new Date().getFullYear()} Palo Alto Networks. Confidential — for executive briefing purposes only.
         </p>
       </div>
     </footer>

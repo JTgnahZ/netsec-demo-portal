@@ -1,6 +1,6 @@
 import { useEffect, useState, useRef, useCallback, useMemo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ShieldCheck, Lock, Zap } from "lucide-react";
+import { ShieldCheck, Users, Zap } from "lucide-react";
 
 const rotatingWords = ["Prisma SASE", "NGFW", "AIRS", "CDSS", "Quantum Security", "Network Security"];
 
@@ -364,7 +364,7 @@ const HeroSection = () => {
           className="grid grid-cols-1 sm:grid-cols-3 gap-6 mt-16 pointer-events-auto max-w-4xl mx-auto">
 
           {[
-          { icon: Lock, label: "Customers worldwide deliver a global network effect of threat intelligence", value: "70K" },
+          { icon: Users, label: "Customers worldwide deliver a global network effect of threat intelligence", value: "70K" },
           { icon: Zap, label: "Faster prevention of threats compared to the average competitor", value: "180X" },
           { icon: ShieldCheck, label: "New Zero-Day threats prevented everyday", value: "8.95M" }].
           map((stat) =>

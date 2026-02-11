@@ -292,54 +292,37 @@ const HeroSection = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.4 }}
         >
-          <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-extrabold leading-[1.1] tracking-tight mb-6">
-            <span className="block mb-2 min-h-[1.2em]">
-              <AnimatePresence mode="wait">
-                <motion.span
-                  key={rotatingWords[currentIndex]}
-                  initial={{ opacity: 0, y: 30, filter: "blur(8px)" }}
-                  animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-                  exit={{ opacity: 0, y: -30, filter: "blur(8px)" }}
-                  transition={{ duration: 0.5 }}
-                  className="inline-block text-primary"
-                >
-                  {rotatingWords[currentIndex]}
-                </motion.span>
-              </AnimatePresence>
-            </span>
-            <span className="text-foreground">made </span>
-            <span className="relative inline-block">
-              {/* Bounding box frame */}
-              <span className="absolute -inset-x-4 -inset-y-2 pointer-events-none">
-                {/* Top border */}
-                <span className="absolute top-0 left-0 right-0 h-[2px] bg-border" />
-                {/* Bottom border */}
-                <span className="absolute bottom-0 left-0 right-0 h-[2px] bg-primary" />
-                {/* Left border */}
-                <span className="absolute top-0 left-0 bottom-0 w-[2px] bg-border" />
-                {/* Right border */}
-                <span className="absolute top-0 right-0 bottom-0 w-[2px] bg-muted-foreground/40" />
-                {/* Corner handles */}
-                <span className="absolute -top-1.5 -left-1.5 w-3 h-3 border-2 border-muted-foreground/60 bg-background" />
-                <span className="absolute -top-1.5 -right-1.5 w-3 h-3 border-2 border-muted-foreground/60 bg-background" />
-                <span className="absolute -bottom-1.5 -left-1.5 w-3 h-3 border-2 border-primary bg-background" />
-                <span className="absolute -bottom-1.5 -right-1.5 w-3 h-3 border-2 border-muted-foreground/60 bg-background" />
-              </span>
-              <DecisiveText />
-            </span>
+          <h1 className="text-7xl sm:text-8xl md:text-9xl lg:text-[10rem] font-extrabold leading-[1.05] tracking-tight mb-6">
+            <span className="block text-primary">NetSec</span>
+            <span className="block text-foreground">Solutions</span>
           </h1>
         </motion.div>
 
-        {/* Subtitle */}
-        <motion.p
+        {/* Capability list */}
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.6 }}
-          className="text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto mb-10 leading-relaxed"
+          className="max-w-4xl mx-auto mb-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 text-left"
         >
-          Explore real-world solutions, proven outcomes, and the future of enterprise
-          network defense — all in one interactive demo portal.
-        </motion.p>
+          {[
+            { title: "Secure AI by Design", items: ["Secure AI Ecosystem", "Secure GenAI Usage"] },
+            { title: "Protect the Extended Network", items: ["Data Center Security", "Device Security", "OT Security", "5G Security"] },
+            { title: "Prevent Network Threats", items: ["Malware Analysis / Sandboxing", "Internet Security", "Intrusion Prevention (IPS)", "Secure DNS Traffic"] },
+            { title: "Simplify Network Security Management", items: ["Network Security Platform", "Unified Management Experience"] },
+            { title: "Protect Data & SaaS Applications", items: ["Data Loss Prevention", "Secure Access Service Edge", "Zero Trust Network Access", "Cloud Secure Web Gateway", "SaaS Security (CASB)"] },
+            { title: "Branch & SD-WAN", items: ["Autonomous Digital Experience Management"] },
+          ].map((group) => (
+            <div key={group.title} className="px-4 py-3 rounded-xl bg-glass glow-border">
+              <h3 className="text-sm font-bold text-primary mb-2">{group.title}</h3>
+              <ul className="space-y-1">
+                {group.items.map((item) => (
+                  <li key={item} className="text-xs text-muted-foreground">{item}</li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </motion.div>
 
         {/* CTAs */}
         <motion.div

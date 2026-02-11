@@ -1,8 +1,9 @@
-import { useEffect, useState, useRef, useCallback } from "react";
+import { useEffect, useState, useRef, useCallback, useMemo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight, ShieldCheck, Lock, Zap } from "lucide-react";
 
 const rotatingWords = ["Prisma SASE", "NGFW", "AIRS", "CDSS", "Quantum Security", "Network Security"];
+const SCRAMBLE_CHARS = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789@#$%&*!?";
 
 const GRID_SIZE = 40;
 
@@ -85,13 +86,84 @@ const InteractiveGrid = () => {
   );
 };
 
+/** Scramble text component — reveals each character with random scramble */
+const ScrambleWord = ({ text }: { text: string }) => {
+  const [displayed, setDisplayed] = useState<string[]>(Array(text.length).fill(""));
+  const [settled, setSettled] = useState<boolean[]>(Array(text.length).fill(false));
+
+  useEffect(() => {
+    const chars = text.split("");
+    const newDisplayed = Array(chars.length).fill("");
+    const newSettled = Array(chars.length).fill(false);
+    setDisplayed(newDisplayed);
+    setSettled(newSettled);
+
+    // For each character, scramble for a staggered duration then settle
+    chars.forEach((char, i) => {
+      const scrambleDuration = 300 + i * 80; // stagger each letter
+      const scrambleInterval = 40;
+      let elapsed = 0;
+
+      const interval = setInterval(() => {
+        elapsed += scrambleInterval;
+        if (elapsed >= scrambleDuration) {
+          clearInterval(interval);
+          setDisplayed((prev) => {
+            const next = [...prev];
+            next[i] = char;
+            return next;
+          });
+          setSettled((prev) => {
+            const next = [...prev];
+            next[i] = true;
+            return next;
+          });
+        } else {
+          setDisplayed((prev) => {
+            const next = [...prev];
+            next[i] = char === " " ? " " : SCRAMBLE_CHARS[Math.floor(Math.random() * SCRAMBLE_CHARS.length)];
+            return next;
+          });
+        }
+      }, scrambleInterval);
+
+      return () => clearInterval(interval);
+    });
+  }, [text]);
+
+  return (
+    <span className="inline-flex" aria-label={text}>
+      {displayed.map((char, i) => (
+        <motion.span
+          key={`${text}-${i}`}
+          initial={{ opacity: 0, y: 20, scale: 0.5 }}
+          animate={{
+            opacity: 1,
+            y: 0,
+            scale: 1,
+            color: settled[i] ? undefined : "hsl(185 80% 75%)",
+          }}
+          transition={{
+            duration: 0.15,
+            delay: i * 0.03,
+          }}
+          className={`inline-block font-mono ${settled[i] ? "text-primary font-sans" : "text-primary/60"}`}
+          style={{ minWidth: char === " " ? "0.35em" : undefined }}
+        >
+          {char || "\u00A0"}
+        </motion.span>
+      ))}
+    </span>
+  );
+};
+
 const HeroSection = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentIndex((prev) => (prev + 1) % rotatingWords.length);
-    }, 2500);
+    }, 3000);
     return () => clearInterval(interval);
   }, []);
 
@@ -123,17 +195,17 @@ const HeroSection = () => {
           transition={{ duration: 0.7, delay: 0.4 }}
         >
           <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-extrabold leading-[1.1] tracking-tight mb-6">
-            <span className="block mb-2 text-foreground">
+            <span className="block mb-4 min-h-[1.2em]">
               <AnimatePresence mode="wait">
                 <motion.span
                   key={rotatingWords[currentIndex]}
-                  initial={{ opacity: 0, y: 30, filter: "blur(8px)" }}
-                  animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-                  exit={{ opacity: 0, y: -30, filter: "blur(8px)" }}
-                  transition={{ duration: 0.5 }}
-                  className="inline-block text-primary"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0, scale: 0.95, filter: "blur(10px)" }}
+                  transition={{ duration: 0.3 }}
+                  className="inline-block"
                 >
-                  {rotatingWords[currentIndex]}
+                  <ScrambleWord text={rotatingWords[currentIndex]} />
                 </motion.span>
               </AnimatePresence>
             </span>

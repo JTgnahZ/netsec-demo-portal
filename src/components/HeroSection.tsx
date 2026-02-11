@@ -335,7 +335,7 @@ const HeroSection = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.6 }}
-          className="text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto mb-10 leading-relaxed">
+          className="text-sm sm:text-base text-muted-foreground max-w-2xl mx-auto mb-10 leading-relaxed">
 
           See and safeguard all connections. Secure data, devices, applications, and workloads consistently wherever they live – whether on premises, in the cloud, or remote locations. Consolidate and manage protection seamlessly for all your environments.
         </motion.p>

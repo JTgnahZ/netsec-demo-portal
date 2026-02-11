@@ -48,8 +48,8 @@ const InteractiveGrid = () => {
 
       for (const ripple of ripples) {
         const elapsed = now - ripple.time;
-        const speed = 120; // ms per grid cell
-        const maxDist = 4;
+        const speed = 200; // ms per grid cell
+        const maxDist = 8;
         const currentRadius = elapsed / speed;
 
         if (currentRadius > maxDist + 1) continue;

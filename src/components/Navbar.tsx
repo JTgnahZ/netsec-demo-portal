@@ -24,12 +24,12 @@ const Navbar = () => {
         </div>
 
         <div className="flex items-center gap-3">
-          <a
-            href="#value"
-            className="hidden sm:inline-flex px-4 py-2 text-sm font-medium rounded-lg border border-border text-foreground hover:bg-secondary transition-colors">
+          
 
-            Value Delivered
-          </a>
+
+
+
+
           <a
             href="#vision"
             className="px-4 py-2 text-sm font-medium rounded-lg bg-primary text-primary-foreground hover:opacity-90 transition-opacity">

@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import strataLogo from "@/assets/strata-logo.png";
+import { Shield } from "lucide-react";
 
 const Navbar = () => {
   return (
@@ -11,14 +11,14 @@ const Navbar = () => {
 
       <div className="bg-glass rounded-2xl px-6 py-3 flex items-center justify-between">
         <div className="flex items-center gap-2">
-          <img src={strataLogo} alt="Strata" className="w-7 h-7" />
+          <Shield className="w-6 h-6 text-primary" />
           <span className="text-lg font-bold tracking-tight text-foreground">
-            NetSec <span className="text-primary">EBC Demo Portal</span>
+            NetSec <span className="text-popover-foreground">EBC Demo Portal</span>
           </span>
         </div>
 
         <div className="hidden md:flex items-center gap-8 text-sm text-muted-foreground">
-          <a href="#" className="hover:text-foreground transition-colors" onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); }}>Home</a>
+          <a href="#" className="hover:text-foreground transition-colors" onClick={(e) => {e.preventDefault();window.scrollTo({ top: 0, behavior: 'smooth' });}}>Home</a>
           <a href="#value" className="hover:text-foreground transition-colors">Value</a>
           <a href="#vision" className="hover:text-foreground transition-colors">Vision</a>
         </div>

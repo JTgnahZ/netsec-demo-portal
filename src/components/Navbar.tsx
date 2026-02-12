@@ -21,6 +21,9 @@ const Navbar = () => {
           <a href="#" className="hover:text-foreground transition-colors" onClick={(e) => {e.preventDefault();window.scrollTo({ top: 0, behavior: 'smooth' });}}>Home</a>
           <a href="#value" className="hover:text-foreground transition-colors">Value</a>
           <a href="#vision" className="hover:text-foreground transition-colors">Vision</a>
+          <a href="https://sasesensai.paloaltonetworks.com/EBC2026/trainer" target="_blank" rel="noopener noreferrer" className="hover:text-foreground transition-colors">Trainer</a>
+          <a href="https://stratacloudmanager.paloaltonetworks.com/home?tsg_id=1228584868" target="_blank" rel="noopener noreferrer" className="hover:text-foreground transition-colors">Demo Tenant</a>
+          <a href="https://reachsuite.app/go/exp-f8505ef2" target="_blank" rel="noopener noreferrer" className="hover:text-foreground transition-colors">Simulation Tenant</a>
         </div>
 
         <div className="flex items-center gap-3">

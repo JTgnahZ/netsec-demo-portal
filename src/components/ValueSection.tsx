@@ -6,35 +6,39 @@ const valueItems = [
     icon: Cloud,
     title: "Strata Cloud Manager",
     subtitle: "Unified NetSec Platform",
+    url: "https://sasesensai.paloaltonetworks.com/EBC2026/vlaue/scm",
   },
   {
     icon: Route,
     title: "SASE Journey",
     subtitle: "Day 0 to Day N",
+    url: "https://sasesensai.paloaltonetworks.com/EBC2026/value/sase",
   },
   {
     icon: ShieldCheck,
     title: "CLARA",
     subtitle: "Cloud Network and AI Risk Assessment",
+    url: "https://sasesensai.paloaltonetworks.com/EBC2026/value/clara",
   },
   {
     icon: Globe,
     title: "Secure AI Usage",
     subtitle: "with Prisma Browser",
+    url: "https://sasesensai.paloaltonetworks.com/EBC2026/value/pb",
   },
   {
     icon: Brain,
     title: "AI Transformation",
     subtitle: "Drive with Prisma AIRS",
+    url: "https://sasesensai.paloaltonetworks.com/EBC2026/value/airs",
   },
   {
     icon: Atom,
     title: "Quantum Resilience",
     subtitle: "Post-Quantum Cryptography",
+    url: "https://sasesensai.paloaltonetworks.com/EBC2026/value/quantum",
   },
 ];
-
-const DEMO_URL = "https://sasesensai.paloaltonetworks.com/EBC2026";
 
 const ValueSection = () => {
   return (
@@ -65,7 +69,7 @@ const ValueSection = () => {
           {valueItems.map((item, i) => (
             <motion.a
               key={item.title}
-              href={DEMO_URL}
+              href={item.url}
               target="_blank"
               rel="noopener noreferrer"
               initial={{ opacity: 0, y: 30 }}

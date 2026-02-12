@@ -6,7 +6,7 @@ const valueItems = [
     icon: Cloud,
     title: "Strata Cloud Manager",
     subtitle: "Unified NetSec Platform",
-    url: "https://sasesensai.paloaltonetworks.com/EBC2026/vlaue/scm",
+    url: "https://sasesensai.paloaltonetworks.com/EBC2026/value/scm",
   },
   {
     icon: Route,

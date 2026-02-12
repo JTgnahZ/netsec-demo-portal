@@ -51,7 +51,7 @@ const VisionSection = () => {
             Vision Delivering
           </span>
           <h2 className="text-4xl sm:text-5xl font-extrabold text-gradient-light mb-4">
-            Where we're headed
+            How You'll Be Protected Tomorrow
           </h2>
           <p className="text-muted-foreground text-lg max-w-xl mx-auto">
             The roadmap innovations that will define the next generation of enterprise security.

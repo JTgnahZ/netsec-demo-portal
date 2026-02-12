@@ -1,28 +1,40 @@
 import { motion } from "framer-motion";
-import { Rocket, Cpu, Globe, Layers } from "lucide-react";
+import { Cloud, Route, ShieldCheck, Globe, Brain, Atom } from "lucide-react";
 
 const visionItems = [
   {
-    icon: Cpu,
-    title: "AI-First Security Operations",
-    description: "Next-gen SOC automation where AI agents triage, investigate, and remediate threats autonomously — reducing analyst fatigue by 80%.",
+    icon: Cloud,
+    title: "Strata Cloud Manager",
+    subtitle: "Unified NetSec Platform",
+  },
+  {
+    icon: Route,
+    title: "SASE Journey",
+    subtitle: "Day 0 to Day N",
+  },
+  {
+    icon: ShieldCheck,
+    title: "CLARA",
+    subtitle: "Cloud Network and AI Risk Assessment",
   },
   {
     icon: Globe,
-    title: "Universal SASE Framework",
-    description: "Converged networking and security delivered from the edge, securing every user, branch, and cloud workload with a single architecture.",
+    title: "Secure AI Usage",
+    subtitle: "with Prisma Browser",
   },
   {
-    icon: Layers,
-    title: "Composable Security Mesh",
-    description: "Modular, API-first security services that integrate into any tech stack — from legacy data centers to serverless microservices.",
+    icon: Brain,
+    title: "AI Transformation",
+    subtitle: "Drive with Prisma AIRS",
   },
   {
-    icon: Rocket,
-    title: "Predictive Cyber Defense",
-    description: "Moving from reactive to proactive with threat prediction models that anticipate attack vectors weeks before exploitation.",
+    icon: Atom,
+    title: "Quantum Resilience",
+    subtitle: "Post-Quantum Cryptography",
   },
 ];
+
+const DEMO_URL = "https://sasesensai.paloaltonetworks.com/EBC2026";
 
 const VisionSection = () => {
   return (
@@ -46,24 +58,25 @@ const VisionSection = () => {
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {visionItems.map((item, i) => (
-            <motion.div
+            <motion.a
               key={item.title}
-              initial={{ opacity: 0, x: i % 2 === 0 ? -30 : 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              href={DEMO_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: i * 0.15 }}
-              className="group flex gap-5 p-6 rounded-2xl bg-card border border-border hover:glow-border transition-all duration-300"
+              transition={{ duration: 0.5, delay: i * 0.1 }}
+              className="group flex flex-col items-center justify-center text-center p-8 rounded-2xl bg-card border border-border hover:glow-border transition-all duration-300 cursor-pointer aspect-[4/3]"
             >
-              <div className="flex-shrink-0 w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
+              <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
                 <item.icon className="w-7 h-7 text-primary" />
               </div>
-              <div>
-                <h3 className="text-lg font-semibold text-foreground mb-2">{item.title}</h3>
-                <p className="text-sm text-muted-foreground leading-relaxed">{item.description}</p>
-              </div>
-            </motion.div>
+              <h3 className="text-lg font-semibold text-foreground mb-1">{item.title}</h3>
+              <p className="text-sm text-muted-foreground leading-relaxed">{item.subtitle}</p>
+            </motion.a>
           ))}
         </div>
       </div>

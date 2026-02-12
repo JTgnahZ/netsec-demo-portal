@@ -54,7 +54,7 @@ const ValueSection = () => {
             Value Delivered
           </span>
           <h2 className="text-4xl sm:text-5xl font-extrabold text-gradient-light mb-4">
-            Outcomes that matter
+            How You're Protected Today
           </h2>
           <p className="text-muted-foreground text-lg max-w-xl mx-auto">
             Quantifiable results from organizations that have deployed our security platform at scale.

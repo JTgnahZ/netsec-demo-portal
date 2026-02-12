@@ -71,8 +71,8 @@ const VisionSection = () => {
               transition={{ duration: 0.5, delay: i * 0.1 }}
               className="group flex flex-col items-center justify-center text-center p-8 rounded-2xl bg-card border border-border hover:glow-border transition-all duration-300 cursor-pointer aspect-[4/3]"
             >
-              <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
-                <item.icon className="w-7 h-7 text-primary" />
+              <div className="w-14 h-14 rounded-xl bg-purple-400/10 flex items-center justify-center mb-4 group-hover:bg-purple-400/20 transition-colors">
+                <item.icon className="w-7 h-7 text-purple-400" />
               </div>
               <h3 className="text-lg font-semibold text-foreground mb-1">{item.title}</h3>
               <p className="text-sm text-muted-foreground leading-relaxed">{item.subtitle}</p>

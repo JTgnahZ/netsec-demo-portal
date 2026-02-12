@@ -30,12 +30,12 @@ const Navbar = () => {
 
 
 
-          <a
-            href="#vision"
-            className="px-4 py-2 text-sm font-medium rounded-lg bg-primary text-primary-foreground hover:opacity-90 transition-opacity">
+          
 
-            Vision Delivering
-          </a>
+
+
+
+
         </div>
       </div>
     </motion.nav>);

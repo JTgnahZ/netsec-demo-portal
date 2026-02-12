@@ -1,32 +1,40 @@
 import { motion } from "framer-motion";
-import { TrendingUp, Clock, DollarSign, ShieldCheck } from "lucide-react";
+import { Cloud, Route, ShieldCheck, Globe, Brain, Atom } from "lucide-react";
 
-const metrics = [
+const valueItems = [
   {
-    icon: TrendingUp,
-    value: "92%",
-    label: "Threat Detection Rate",
-    description: "Industry-leading accuracy in identifying and classifying network threats in real time.",
+    icon: Cloud,
+    title: "Strata Cloud Manager",
+    subtitle: "Unified NetSec Platform",
   },
   {
-    icon: Clock,
-    value: "<3 min",
-    label: "Mean Time to Respond",
-    description: "Automated playbooks reduce response times from hours to minutes across all incident types.",
-  },
-  {
-    icon: DollarSign,
-    value: "4.2x",
-    label: "ROI in Year One",
-    description: "Reduced breach costs, lower staffing needs, and eliminated tool sprawl drive measurable returns.",
+    icon: Route,
+    title: "SASE Journey",
+    subtitle: "Day 0 to Day N",
   },
   {
     icon: ShieldCheck,
-    value: "99.99%",
-    label: "Uptime SLA",
-    description: "Enterprise-grade reliability with geo-redundant infrastructure and zero-downtime deployments.",
+    title: "CLARA",
+    subtitle: "Cloud Network and AI Risk Assessment",
+  },
+  {
+    icon: Globe,
+    title: "Secure AI Usage",
+    subtitle: "with Prisma Browser",
+  },
+  {
+    icon: Brain,
+    title: "AI Transformation",
+    subtitle: "Drive with Prisma AIRS",
+  },
+  {
+    icon: Atom,
+    title: "Quantum Resilience",
+    subtitle: "Post-Quantum Cryptography",
   },
 ];
+
+const DEMO_URL = "https://sasesensai.paloaltonetworks.com/EBC2026";
 
 const ValueSection = () => {
   return (
@@ -53,23 +61,25 @@ const ValueSection = () => {
           </p>
         </motion.div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {metrics.map((metric, i) => (
-            <motion.div
-              key={metric.label}
-              initial={{ opacity: 0, scale: 0.95 }}
-              whileInView={{ opacity: 1, scale: 1 }}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {valueItems.map((item, i) => (
+            <motion.a
+              key={item.title}
+              href={DEMO_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: i * 0.1 }}
-              className="relative p-6 rounded-2xl bg-card border border-border text-center group hover:glow-border transition-all duration-300"
+              className="group flex flex-col items-center justify-center text-center p-8 rounded-2xl bg-card border border-border hover:glow-border transition-all duration-300 cursor-pointer aspect-[4/3]"
             >
-              <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mx-auto mb-4 group-hover:bg-primary/20 transition-colors">
-                <metric.icon className="w-6 h-6 text-primary" />
+              <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
+                <item.icon className="w-7 h-7 text-primary" />
               </div>
-              <div className="text-3xl font-extrabold text-gradient-primary mb-1">{metric.value}</div>
-              <div className="text-sm font-semibold text-foreground mb-2">{metric.label}</div>
-              <p className="text-xs text-muted-foreground leading-relaxed">{metric.description}</p>
-            </motion.div>
+              <h3 className="text-lg font-semibold text-foreground mb-1">{item.title}</h3>
+              <p className="text-sm text-muted-foreground leading-relaxed">{item.subtitle}</p>
+            </motion.a>
           ))}
         </div>
       </div>

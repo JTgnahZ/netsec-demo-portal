@@ -18,6 +18,7 @@ const Navbar = () => {
         </div>
 
         <div className="hidden md:flex items-center gap-8 text-sm text-muted-foreground">
+          <a href="#" className="hover:text-foreground transition-colors" onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); }}>Home</a>
           <a href="#value" className="hover:text-foreground transition-colors">Value</a>
           <a href="#vision" className="hover:text-foreground transition-colors">Vision</a>
         </div>

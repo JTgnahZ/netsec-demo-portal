@@ -41,7 +41,7 @@ const visionItems = [
   },
 ];
 
-const IFRAME_URL = "https://sasesensai.paloaltonetworks.com/EBC2026/vision/scm";
+const IFRAME_URL = "https://reachsuite.app/go/exp-2f16dace";
 
 const VisionSection = () => {
   const [expanded, setExpanded] = useState(false);

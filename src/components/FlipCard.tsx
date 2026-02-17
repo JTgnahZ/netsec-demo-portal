@@ -28,7 +28,7 @@ const FlipCard = ({ icon: Icon, title, subtitle, url, accentColor, subDemos }: F
   const linkHoverClass = accentColor === "sky" ? "hover:text-sky-400" : "hover:text-purple-400";
 
   return (
-    <div className="group [perspective:600px] cursor-pointer" style={{ minHeight: 160 }}>
+    <div className="group [perspective:600px] cursor-pointer" style={{ minHeight: 190 }}>
       <div className="relative w-full h-full transition-transform duration-500 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
         {/* Front */}
         <div className="absolute inset-0 [backface-visibility:hidden] flex flex-col items-center justify-center text-center p-4 rounded-xl bg-card border border-border">

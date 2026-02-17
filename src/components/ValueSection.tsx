@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Cloud, Route, ShieldCheck, Globe, Brain, Atom, Expand, X } from "lucide-react";
+import FlipCard from "./FlipCard";
 
 const valueItems = [
   {
@@ -135,23 +136,21 @@ const ValueSection = () => {
           {/* Smaller demo cards */}
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
             {valueItems.map((item, i) => (
-              <motion.a
+              <motion.div
                 key={item.title}
-                href={item.url}
-                target="_blank"
-                rel="noopener noreferrer"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: i * 0.05 }}
-                className="group flex flex-col items-center justify-center text-center p-4 rounded-xl bg-card border border-border hover:glow-border transition-all duration-300 cursor-pointer"
               >
-                <div className="w-9 h-9 rounded-lg bg-sky-400/10 flex items-center justify-center mb-2 group-hover:bg-sky-400/20 transition-colors">
-                  <item.icon className="w-4.5 h-4.5 text-sky-400" />
-                </div>
-                <h3 className="text-xs font-semibold text-foreground leading-tight mb-0.5">{item.title}</h3>
-                <p className="text-[10px] text-muted-foreground leading-tight">{item.subtitle}</p>
-              </motion.a>
+                <FlipCard
+                  icon={item.icon}
+                  title={item.title}
+                  subtitle={item.subtitle}
+                  url={item.url}
+                  accentColor="sky"
+                />
+              </motion.div>
             ))}
           </div>
         </div>

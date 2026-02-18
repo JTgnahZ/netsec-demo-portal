@@ -12,7 +12,7 @@ const visionItems = [
     subDemos: [
       { label: "New Command Center", url: "https://sasesensai.paloaltonetworks.com/EBC2026/vision/scm" },
       { label: "New AI Access", url: "https://sasesensai.paloaltonetworks.com/EBC2026/vision/scm" },
-      { label: "Find it, Fix it", url: "https://sasesensai.paloaltonetworks.com/EBC2026/vision/scm" },
+      { label: "Find it, Fix it", url: "https://sasesensai.paloaltonetworks.com/EBC2026/vision/finditfixit" },
     ],
   },
   {

@@ -22,8 +22,8 @@ const valueItems = [
     url: "https://sasesensai.paloaltonetworks.com/EBC2026/value/sase",
     subDemos: [
       { label: "Day 0 - Day N Journey", url: "https://sasesensai.paloaltonetworks.com/EBC2026/value/sase" },
-      { label: "Prisma Browser", url: "https://sasesensai.paloaltonetworks.com/EBC2026/value/sase" },
-      { label: "Prisma Agent", url: "https://sasesensai.paloaltonetworks.com/EBC2026/value/sase" },
+      { label: "Prisma Browser", url: "https://sasesensai.paloaltonetworks.com/EBC2026/value/pb" },
+      { label: "Prisma Agent", url: "https://sasesensai.paloaltonetworks.com/EBC2026/value/pa" },
     ],
   },
   {

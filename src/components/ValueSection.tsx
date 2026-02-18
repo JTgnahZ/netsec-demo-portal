@@ -145,7 +145,7 @@ const ValueSection = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="relative w-full rounded-2xl overflow-hidden border border-border bg-card mb-10 h-[600px]"
+            className="relative w-full rounded-2xl overflow-hidden border border-border bg-card mb-[10px] h-[600px]"
           >
             <button
               onClick={() => setExpanded(true)}

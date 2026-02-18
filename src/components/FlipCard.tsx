@@ -49,7 +49,7 @@ const FlipCard = ({ icon: Icon, title, subtitle, url, accentColor, subDemos }: F
                   href={demo.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`flex items-center gap-1.5 text-sm text-muted-foreground ${linkHoverClass} transition-colors`}
+                  className={`flex items-center gap-1.5 text-xs text-muted-foreground ${linkHoverClass} transition-colors`}
                   onClick={(e) => e.stopPropagation()}
                 >
                   <span className={`w-1 h-1 rounded-full ${dotClass} shrink-0`} />

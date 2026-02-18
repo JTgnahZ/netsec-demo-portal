@@ -10,10 +10,9 @@ const valueItems = [
     subtitle: "Unified NetSec Platform",
     url: "https://sasesensai.paloaltonetworks.com/EBC2026/value/scm",
     subDemos: [
-      { label: "Zero Trust Posture", url: "https://sasesensai.paloaltonetworks.com/EBC2026/value/scm" },
-      { label: "Compliance Summary", url: "https://sasesensai.paloaltonetworks.com/EBC2026/value/scm" },
-      { label: "NetSec Health", url: "https://sasesensai.paloaltonetworks.com/EBC2026/value/scm" },
-      { label: "AI Access", url: "https://sasesensai.paloaltonetworks.com/EBC2026/value/scm" },
+      { label: "aaa", url: "https://sasesensai.paloaltonetworks.com/EBC2026/value/scm" },
+      { label: "Live Demo", url: "https://sasesensai.paloaltonetworks.com/EBC2026/value/scm" },
+      { label: "Use Cases", url: "https://sasesensai.paloaltonetworks.com/EBC2026/value/scm" },
     ],
   },
   {
@@ -179,7 +178,6 @@ const ValueSection = () => {
                   subtitle={item.subtitle}
                   url={item.url}
                   accentColor="sky"
-                  subDemos={item.subDemos}
                 />
               </motion.div>
             ))}

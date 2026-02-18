@@ -307,6 +307,7 @@ const HeroSection = () => {
                 </motion.span>
               </AnimatePresence>
             </span>
+            <span className="whitespace-nowrap">
             <span className="relative inline-block">
               {/* Bounding box frame */}
               <span className="absolute -inset-x-4 -inset-y-2 pointer-events-none">
@@ -326,7 +327,9 @@ const HeroSection = () => {
               </span>
               <DecisiveText />
             </span>
-            <span className="text-foreground"> NetSec Platform</span>
+            <span style={{ color: "rgb(255, 203, 6)" }}> NetSec</span>
+            <span className="text-foreground"> Platform</span>
+            </span>
           </h1>
         </motion.div>
 

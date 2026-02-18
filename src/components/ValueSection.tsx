@@ -10,9 +10,9 @@ const valueItems = [
     subtitle: "Unified NetSec Platform",
     url: "https://sasesensai.paloaltonetworks.com/EBC2026/value/scm",
     subDemos: [
-      { label: "Posture", url: "https://sasesensai.paloaltonetworks.com/EBC2026/value/scm" },
-      { label: "Compliance", url: "https://sasesensai.paloaltonetworks.com/EBC2026/value/scm" },
-      { label: "NetSec Health", url: "https://sasesensai.paloaltonetworks.com/EBC2026/value/scm" },
+      { label: "Security Posture and Compliance", url: "https://sasesensai.paloaltonetworks.com/EBC2026/value/posture" },
+      { label: "Strata AI Canvas", url: "https://sasesensai.paloaltonetworks.com/EBC2026/value/canvas-ngfw" },
+      { label: "Strata Copilot", url: "https://sasesensai.paloaltonetworks.com/EBC2026/value/copilot-ngfw" },
     ],
   },
   {
@@ -35,8 +35,8 @@ const valueItems = [
     subtitle: "Cloud Network and AI Risk Assessment",
     url: "https://sasesensai.paloaltonetworks.com/EBC2026/value/clara",
     subDemos: [
-      { label: "CLARA", url: "https://sasesensai.paloaltonetworks.com/EBC2026/value/clara" },
-      { label: "Cloud Firewall Benchmarking", url: "https://sasesensai.paloaltonetworks.com/EBC2026/value/clara" },
+      { label: "CLARA Discovery", url: "https://sasesensai.paloaltonetworks.com/EBC2026/value/clara" },
+      { label: "CLARA Discovery", url: "https://sasesensai.paloaltonetworks.com/EBC2026/value/clara-benchmarking" },
     ],
   },
   {

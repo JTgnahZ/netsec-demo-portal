@@ -132,7 +132,7 @@ const VisionSection = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="relative w-full rounded-2xl overflow-hidden border border-border bg-card h-[520px]" style={{ marginBottom: "50px" }}
+            className="relative w-full rounded-2xl overflow-hidden border border-border bg-card h-[700px]" style={{ marginBottom: "50px" }}
           >
             <button
               onClick={() => setExpanded(true)}

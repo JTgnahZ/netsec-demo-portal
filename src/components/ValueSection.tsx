@@ -10,9 +10,10 @@ const valueItems = [
     subtitle: "Unified NetSec Platform",
     url: "https://sasesensai.paloaltonetworks.com/EBC2026/value/scm",
     subDemos: [
-      { label: "Overview", url: "https://sasesensai.paloaltonetworks.com/EBC2026/value/scm" },
-      { label: "Live Demo", url: "https://sasesensai.paloaltonetworks.com/EBC2026/value/scm" },
-      { label: "Use Cases", url: "https://sasesensai.paloaltonetworks.com/EBC2026/value/scm" },
+      { label: "Zero Trust Posture", url: "https://sasesensai.paloaltonetworks.com/EBC2026/value/scm" },
+      { label: "Compliance Summary", url: "https://sasesensai.paloaltonetworks.com/EBC2026/value/scm" },
+      { label: "NetSec Health", url: "https://sasesensai.paloaltonetworks.com/EBC2026/value/scm" },
+      { label: "AI Access", url: "https://sasesensai.paloaltonetworks.com/EBC2026/value/scm" },
     ],
   },
   {
@@ -131,9 +132,7 @@ const ValueSection = () => {
             <span className="text-xs font-medium uppercase tracking-[0.25em] text-primary mb-4 block">
               Value Delivered
             </span>
-            <h2 className="text-4xl sm:text-5xl font-extrabold text-gradient-light mb-4">
-              How You're Protected Today
-            </h2>
+            <h2 className="text-4xl sm:text-5xl font-extrabold text-gradient-light mb-4">How You're Protected Today</h2>
             <p className="text-muted-foreground text-lg max-w-xl mx-auto">
               Quantifiable results from organizations that have deployed our security platform at scale.
             </p>
@@ -145,7 +144,8 @@ const ValueSection = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="relative w-full rounded-2xl overflow-hidden border border-border bg-card h-[600px]" style={{ marginBottom: "50px" }}
+            className="relative w-full rounded-2xl overflow-hidden border border-border bg-card h-[600px]"
+            style={{ marginBottom: "50px" }}
           >
             <button
               onClick={() => setExpanded(true)}

@@ -35,8 +35,8 @@ const FlipCard = ({ icon: Icon, title, subtitle, url, accentColor, subDemos }: F
           <div className={`w-9 h-9 rounded-lg ${bgClass} flex items-center justify-center mb-2 transition-colors`}>
             <Icon className={`w-4.5 h-4.5 ${iconClass}`} />
           </div>
-          <h3 className="text-xs font-semibold text-foreground leading-tight mb-0.5">{title}</h3>
-          <p className="text-[10px] text-muted-foreground leading-tight">{subtitle}</p>
+          <h3 className="text-sm font-semibold text-foreground leading-tight mb-0.5">{title}</h3>
+          <p className="text-xs text-muted-foreground leading-tight">{subtitle}</p>
         </div>
 
         {/* Back */}

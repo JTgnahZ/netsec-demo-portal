@@ -71,7 +71,7 @@ const valueItems = [
   },
 ];
 
-const IFRAME_URL = "https://reachsuite.app/go/exp-f8505ef2";
+const IFRAME_URL = "https://stratacloudmanager.paloaltonetworks.com/home?tsg_id=1228584868";
 
 const ValueSection = () => {
   const [expanded, setExpanded] = useState(false);

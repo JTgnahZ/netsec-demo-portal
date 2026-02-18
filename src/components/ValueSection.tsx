@@ -143,7 +143,7 @@ const ValueSection = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.1 }}
             className="relative w-full rounded-2xl overflow-hidden border border-border bg-card h-[600px]"
-            style={{ marginBottom: "25px" }}
+            style={{ marginBottom: "20px" }}
           >
             <button
               onClick={() => setExpanded(true)}

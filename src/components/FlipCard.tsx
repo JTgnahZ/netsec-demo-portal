@@ -31,7 +31,7 @@ const FlipCard = ({ icon: Icon, title, subtitle, url, accentColor, subDemos }: F
     <div className="group [perspective:600px] cursor-pointer" style={{ minHeight: 160 }}>
       <div className="relative w-full h-full transition-transform duration-500 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
         {/* Front */}
-        <div className="absolute inset-0 [backface-visibility:hidden] flex flex-col items-center justify-center text-center p-4 rounded-xl">
+        <div className="absolute inset-0 [backface-visibility:hidden] flex flex-col items-center justify-start text-center p-4 pt-5 rounded-xl">
           <div className={`w-9 h-9 rounded-lg ${bgClass} flex items-center justify-center mb-2 transition-colors`}>
             <Icon className={`w-4.5 h-4.5 ${iconClass}`} />
           </div>

@@ -250,7 +250,7 @@ const DecisiveText = () => {
         backgroundClip: "text"
       }}>
 
-      decisive
+      AI-Powered
     </span>);
 
 };
@@ -307,7 +307,6 @@ const HeroSection = () => {
                 </motion.span>
               </AnimatePresence>
             </span>
-            <span className="text-foreground">made </span>
             <span className="relative inline-block">
               {/* Bounding box frame */}
               <span className="absolute -inset-x-4 -inset-y-2 pointer-events-none">
@@ -327,6 +326,7 @@ const HeroSection = () => {
               </span>
               <DecisiveText />
             </span>
+            <span className="text-foreground"> NetSec Platform</span>
           </h1>
         </motion.div>
 

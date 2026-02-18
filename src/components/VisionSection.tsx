@@ -107,7 +107,7 @@ const VisionSection = () => {
         )}
       </AnimatePresence>
 
-      <section id="vision" className="py-12 sm:py-16 relative">
+      <section id="vision" className="py-16 sm:py-20 relative">
         <div className="max-w-6xl mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}

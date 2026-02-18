@@ -10,9 +10,9 @@ const visionItems = [
     subtitle: "Unified NetSec Platform",
     url: "https://sasesensai.paloaltonetworks.com/EBC2026/vision/scm",
     subDemos: [
-      { label: "Overview", url: "https://sasesensai.paloaltonetworks.com/EBC2026/vision/scm" },
-      { label: "Live Demo", url: "https://sasesensai.paloaltonetworks.com/EBC2026/vision/scm" },
-      { label: "Use Cases", url: "https://sasesensai.paloaltonetworks.com/EBC2026/vision/scm" },
+      { label: "New Command Center", url: "https://sasesensai.paloaltonetworks.com/EBC2026/vision/scm" },
+      { label: "New AI Access", url: "https://sasesensai.paloaltonetworks.com/EBC2026/vision/scm" },
+      { label: "Find it, Fix it", url: "https://sasesensai.paloaltonetworks.com/EBC2026/vision/scm" },
     ],
   },
   {
@@ -21,20 +21,18 @@ const visionItems = [
     subtitle: "Day 0 to Day N",
     url: "https://sasesensai.paloaltonetworks.com/EBC2026/vision/sase",
     subDemos: [
-      { label: "Day 0 Setup", url: "https://sasesensai.paloaltonetworks.com/EBC2026/vision/sase" },
-      { label: "Day N Operations", url: "https://sasesensai.paloaltonetworks.com/EBC2026/vision/sase" },
-      { label: "Migration Guide", url: "https://sasesensai.paloaltonetworks.com/EBC2026/vision/sase" },
+      { label: "Zscaler Migration V2", url: "https://sasesensai.paloaltonetworks.com/EBC2026/vision/sase" },
+      { label: "Agentic Onboarding", url: "https://sasesensai.paloaltonetworks.com/EBC2026/vision/sase" },
+      { label: "Time To Value", url: "https://sasesensai.paloaltonetworks.com/EBC2026/vision/sase" },
     ],
   },
   {
     icon: ShieldCheck,
-    title: "CLARA",
+    title: "NGTS",
     subtitle: "Cloud Network and AI Risk Assessment",
     url: "https://sasesensai.paloaltonetworks.com/EBC2026/vision/clara",
     subDemos: [
-      { label: "Risk Assessment", url: "https://sasesensai.paloaltonetworks.com/EBC2026/vision/clara" },
-      { label: "AI Analysis", url: "https://sasesensai.paloaltonetworks.com/EBC2026/vision/clara" },
-      { label: "Cloud Coverage", url: "https://sasesensai.paloaltonetworks.com/EBC2026/vision/clara" },
+      { label: "CyberArk Integration", url: "https://sasesensai.paloaltonetworks.com/EBC2026/vision/clara" },
     ],
   },
   {
@@ -43,9 +41,7 @@ const visionItems = [
     subtitle: "with Prisma Browser",
     url: "https://sasesensai.paloaltonetworks.com/EBC2026/vision/pb",
     subDemos: [
-      { label: "Browser Security", url: "https://sasesensai.paloaltonetworks.com/EBC2026/vision/pb" },
-      { label: "AI Access Control", url: "https://sasesensai.paloaltonetworks.com/EBC2026/vision/pb" },
-      { label: "Threat Prevention", url: "https://sasesensai.paloaltonetworks.com/EBC2026/vision/pb" },
+      { label: "Prisma Agentic Browser", url: "https://sasesensai.paloaltonetworks.com/EBC2026/vision/pb" },
     ],
   },
   {
@@ -54,9 +50,7 @@ const visionItems = [
     subtitle: "Drive with Prisma AIRS",
     url: "https://sasesensai.paloaltonetworks.com/EBC2026/vision/airs",
     subDemos: [
-      { label: "AI Security", url: "https://sasesensai.paloaltonetworks.com/EBC2026/vision/airs" },
-      { label: "Runtime Protection", url: "https://sasesensai.paloaltonetworks.com/EBC2026/vision/airs" },
-      { label: "Model Defense", url: "https://sasesensai.paloaltonetworks.com/EBC2026/vision/airs" },
+      { label: "Prisma AIRS Innovations", url: "https://sasesensai.paloaltonetworks.com/EBC2026/vision/airs" },
     ],
   },
   {
@@ -65,9 +59,7 @@ const visionItems = [
     subtitle: "Post-Quantum Cryptography",
     url: "https://sasesensai.paloaltonetworks.com/EBC2026/vision/quantum",
     subDemos: [
-      { label: "PQC Overview", url: "https://sasesensai.paloaltonetworks.com/EBC2026/vision/quantum" },
-      { label: "Key Exchange", url: "https://sasesensai.paloaltonetworks.com/EBC2026/vision/quantum" },
-      { label: "Readiness Guide", url: "https://sasesensai.paloaltonetworks.com/EBC2026/vision/quantum" },
+      { label: "Quantum Security", url: "https://sasesensai.paloaltonetworks.com/EBC2026/vision/quantum" },
     ],
   },
 ];

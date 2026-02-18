@@ -307,7 +307,7 @@ const HeroSection = () => {
                 </motion.span>
               </AnimatePresence>
             </span>
-            <span className="whitespace-nowrap">
+            <span className="block text-center whitespace-nowrap text-3xl sm:text-4xl md:text-5xl lg:text-6xl">
             <span className="relative inline-block">
               {/* Bounding box frame */}
               <span className="absolute -inset-x-4 -inset-y-2 pointer-events-none">

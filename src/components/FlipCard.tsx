@@ -41,7 +41,7 @@ const FlipCard = ({ icon: Icon, title, subtitle, url, accentColor, subDemos }: F
 
         {/* Back */}
         <div className="absolute inset-0 [backface-visibility:hidden] [transform:rotateY(180deg)] flex flex-col items-start justify-center p-4 rounded-xl">
-          <h4 className="text-sm font-semibold text-foreground mb-2 whitespace-nowrap">{title}</h4>
+          <h4 className="text-lg font-semibold text-foreground mb-2 whitespace-nowrap">{title}</h4>
           <ul className="w-full space-y-1.5">
             {demos.map((demo) => (
               <li key={demo.label}>
@@ -49,7 +49,7 @@ const FlipCard = ({ icon: Icon, title, subtitle, url, accentColor, subDemos }: F
                   href={demo.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`flex items-center gap-1.5 text-[10px] text-muted-foreground ${linkHoverClass} transition-colors`}
+                  className={`flex items-center gap-1.5 text-sm text-muted-foreground ${linkHoverClass} transition-colors`}
                   onClick={(e) => e.stopPropagation()}
                 >
                   <span className={`w-1 h-1 rounded-full ${dotClass} shrink-0`} />

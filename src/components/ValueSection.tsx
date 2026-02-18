@@ -9,36 +9,66 @@ const valueItems = [
     title: "Strata Cloud Manager",
     subtitle: "Unified NetSec Platform",
     url: "https://sasesensai.paloaltonetworks.com/EBC2026/value/scm",
+    subDemos: [
+      { label: "Overview", url: "https://sasesensai.paloaltonetworks.com/EBC2026/value/scm" },
+      { label: "Live Demo", url: "https://sasesensai.paloaltonetworks.com/EBC2026/value/scm" },
+      { label: "Use Cases", url: "https://sasesensai.paloaltonetworks.com/EBC2026/value/scm" },
+    ],
   },
   {
     icon: Route,
     title: "SASE Journey",
     subtitle: "Day 0 to Day N",
     url: "https://sasesensai.paloaltonetworks.com/EBC2026/value/sase",
+    subDemos: [
+      { label: "Day 0 Setup", url: "https://sasesensai.paloaltonetworks.com/EBC2026/value/sase" },
+      { label: "Day N Operations", url: "https://sasesensai.paloaltonetworks.com/EBC2026/value/sase" },
+      { label: "Migration Guide", url: "https://sasesensai.paloaltonetworks.com/EBC2026/value/sase" },
+    ],
   },
   {
     icon: ShieldCheck,
     title: "CLARA",
     subtitle: "Cloud Network and AI Risk Assessment",
     url: "https://sasesensai.paloaltonetworks.com/EBC2026/value/clara",
+    subDemos: [
+      { label: "Risk Assessment", url: "https://sasesensai.paloaltonetworks.com/EBC2026/value/clara" },
+      { label: "AI Analysis", url: "https://sasesensai.paloaltonetworks.com/EBC2026/value/clara" },
+      { label: "Cloud Coverage", url: "https://sasesensai.paloaltonetworks.com/EBC2026/value/clara" },
+    ],
   },
   {
     icon: Globe,
     title: "Secure AI Usage",
     subtitle: "with Prisma Browser",
     url: "https://sasesensai.paloaltonetworks.com/EBC2026/value/pb",
+    subDemos: [
+      { label: "Browser Security", url: "https://sasesensai.paloaltonetworks.com/EBC2026/value/pb" },
+      { label: "AI Access Control", url: "https://sasesensai.paloaltonetworks.com/EBC2026/value/pb" },
+      { label: "Threat Prevention", url: "https://sasesensai.paloaltonetworks.com/EBC2026/value/pb" },
+    ],
   },
   {
     icon: Brain,
     title: "AI Transformation",
     subtitle: "Drive with Prisma AIRS",
     url: "https://sasesensai.paloaltonetworks.com/EBC2026/value/airs",
+    subDemos: [
+      { label: "AI Security", url: "https://sasesensai.paloaltonetworks.com/EBC2026/value/airs" },
+      { label: "Runtime Protection", url: "https://sasesensai.paloaltonetworks.com/EBC2026/value/airs" },
+      { label: "Model Defense", url: "https://sasesensai.paloaltonetworks.com/EBC2026/value/airs" },
+    ],
   },
   {
     icon: Atom,
     title: "Quantum Resilience",
     subtitle: "Post-Quantum Cryptography",
     url: "https://sasesensai.paloaltonetworks.com/EBC2026/value/quantum",
+    subDemos: [
+      { label: "PQC Overview", url: "https://sasesensai.paloaltonetworks.com/EBC2026/value/quantum" },
+      { label: "Key Exchange", url: "https://sasesensai.paloaltonetworks.com/EBC2026/value/quantum" },
+      { label: "Readiness Guide", url: "https://sasesensai.paloaltonetworks.com/EBC2026/value/quantum" },
+    ],
   },
 ];
 

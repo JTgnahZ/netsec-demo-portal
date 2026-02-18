@@ -21,9 +21,12 @@ const valueItems = [
     subtitle: "Day 0 to Day N",
     url: "https://sasesensai.paloaltonetworks.com/EBC2026/value/sase",
     subDemos: [
-      { label: "Day 0 - Day N Journey", url: "https://sasesensai.paloaltonetworks.com/EBC2026/value/sase" },
+    { label: "Day 0 - Day N", url: "https://sasesensai.paloaltonetworks.com/EBC2026/value/sase" },
+      { label: "ADEM", url: "https://sasesensai.paloaltonetworks.com/EBC2026/value/adem" },
+      { label: "Strata Canvas", url: "https://sasesensai.paloaltonetworks.com/EBC2026/value/canvas" },
+      { label: "Strata Copilot", url: "https://sasesensai.paloaltonetworks.com/EBC2026/value/copilot" },
       { label: "Prisma Browser", url: "https://sasesensai.paloaltonetworks.com/EBC2026/value/pb" },
-      { label: "Prisma Agent", url: "https://sasesensai.paloaltonetworks.com/EBC2026/value/pa" },
+      { label: "Prisma SDWAN", url: "https://sasesensai.paloaltonetworks.com/EBC2026/value/sdwan" },
     ],
   },
   {

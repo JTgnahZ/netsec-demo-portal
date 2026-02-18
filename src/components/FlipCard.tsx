@@ -40,7 +40,7 @@ const FlipCard = ({ icon: Icon, title, subtitle, url, accentColor, subDemos }: F
         </div>
 
         {/* Back */}
-        <div className="absolute inset-0 [backface-visibility:hidden] [transform:rotateY(180deg)] flex flex-col items-start justify-center p-4 rounded-xl">
+        <div className="absolute inset-0 [backface-visibility:hidden] [transform:rotateY(180deg)] flex flex-col items-start justify-start p-4 rounded-xl">
           <h4 className="text-lg font-semibold text-foreground mb-2 whitespace-nowrap">{title}</h4>
           <ul className="w-full space-y-1.5">
             {demos.map((demo) => (

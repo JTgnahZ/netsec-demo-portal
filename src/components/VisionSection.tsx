@@ -172,6 +172,7 @@ const VisionSection = () => {
                   subtitle={item.subtitle}
                   url={item.url}
                   accentColor="purple"
+                  subDemos={item.subDemos}
                 />
               </motion.div>
             ))}

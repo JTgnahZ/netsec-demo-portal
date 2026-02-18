@@ -42,7 +42,7 @@ const valueItems = [
     subtitle: "Multi-Cloud Security Fabric",
     url: "https://sasesensai.paloaltonetworks.com/EBC2026/value/pb",
     subDemos: [
-      { label: "Multi-Cloud Security Fabric", url: "https://sasesensai.paloaltonetworks.com/EBC2026/value/pb" },
+      { label: "Multi-Cloud Security Fabric", url: "https://sasesensai.paloaltonetworks.com/EBC2026/value/msf" },
     ],
   },
   {

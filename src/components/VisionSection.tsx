@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Cloud, Route, ShieldCheck, Globe, Brain, Atom, Expand, X } from "lucide-react";
+import FlipCard from "./FlipCard";
 
 const visionItems = [
   {
@@ -8,36 +9,66 @@ const visionItems = [
     title: "Strata Cloud Manager",
     subtitle: "Unified NetSec Platform",
     url: "https://sasesensai.paloaltonetworks.com/EBC2026/vision/scm",
+    subDemos: [
+      { label: "Overview", url: "https://sasesensai.paloaltonetworks.com/EBC2026/vision/scm" },
+      { label: "Live Demo", url: "https://sasesensai.paloaltonetworks.com/EBC2026/vision/scm" },
+      { label: "Use Cases", url: "https://sasesensai.paloaltonetworks.com/EBC2026/vision/scm" },
+    ],
   },
   {
     icon: Route,
     title: "SASE Journey",
     subtitle: "Day 0 to Day N",
     url: "https://sasesensai.paloaltonetworks.com/EBC2026/vision/sase",
+    subDemos: [
+      { label: "Day 0 Setup", url: "https://sasesensai.paloaltonetworks.com/EBC2026/vision/sase" },
+      { label: "Day N Operations", url: "https://sasesensai.paloaltonetworks.com/EBC2026/vision/sase" },
+      { label: "Migration Guide", url: "https://sasesensai.paloaltonetworks.com/EBC2026/vision/sase" },
+    ],
   },
   {
     icon: ShieldCheck,
     title: "CLARA",
     subtitle: "Cloud Network and AI Risk Assessment",
     url: "https://sasesensai.paloaltonetworks.com/EBC2026/vision/clara",
+    subDemos: [
+      { label: "Risk Assessment", url: "https://sasesensai.paloaltonetworks.com/EBC2026/vision/clara" },
+      { label: "AI Analysis", url: "https://sasesensai.paloaltonetworks.com/EBC2026/vision/clara" },
+      { label: "Cloud Coverage", url: "https://sasesensai.paloaltonetworks.com/EBC2026/vision/clara" },
+    ],
   },
   {
     icon: Globe,
     title: "Secure AI Usage",
     subtitle: "with Prisma Browser",
     url: "https://sasesensai.paloaltonetworks.com/EBC2026/vision/pb",
+    subDemos: [
+      { label: "Browser Security", url: "https://sasesensai.paloaltonetworks.com/EBC2026/vision/pb" },
+      { label: "AI Access Control", url: "https://sasesensai.paloaltonetworks.com/EBC2026/vision/pb" },
+      { label: "Threat Prevention", url: "https://sasesensai.paloaltonetworks.com/EBC2026/vision/pb" },
+    ],
   },
   {
     icon: Brain,
     title: "AI Transformation",
     subtitle: "Drive with Prisma AIRS",
     url: "https://sasesensai.paloaltonetworks.com/EBC2026/vision/airs",
+    subDemos: [
+      { label: "AI Security", url: "https://sasesensai.paloaltonetworks.com/EBC2026/vision/airs" },
+      { label: "Runtime Protection", url: "https://sasesensai.paloaltonetworks.com/EBC2026/vision/airs" },
+      { label: "Model Defense", url: "https://sasesensai.paloaltonetworks.com/EBC2026/vision/airs" },
+    ],
   },
   {
     icon: Atom,
     title: "Quantum Resilience",
     subtitle: "Post-Quantum Cryptography",
     url: "https://sasesensai.paloaltonetworks.com/EBC2026/vision/quantum",
+    subDemos: [
+      { label: "PQC Overview", url: "https://sasesensai.paloaltonetworks.com/EBC2026/vision/quantum" },
+      { label: "Key Exchange", url: "https://sasesensai.paloaltonetworks.com/EBC2026/vision/quantum" },
+      { label: "Readiness Guide", url: "https://sasesensai.paloaltonetworks.com/EBC2026/vision/quantum" },
+    ],
   },
 ];
 
@@ -120,8 +151,7 @@ const VisionSection = () => {
             <iframe
               src={IFRAME_URL}
               title="Vision Demo"
-              style={{ width: "166.67%", height: "866px", transform: "scale(0.6)", transformOrigin: "top left" }}
-              className="pointer-events-auto"
+              className="w-full h-full pointer-events-auto"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowFullScreen
             />
@@ -129,23 +159,21 @@ const VisionSection = () => {
 
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
             {visionItems.map((item, i) => (
-              <motion.a
+              <motion.div
                 key={item.title}
-                href={item.url}
-                target="_blank"
-                rel="noopener noreferrer"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: i * 0.05 }}
-                className="group flex flex-col items-center justify-center text-center p-4 rounded-xl bg-card border border-border hover:glow-border transition-all duration-300 cursor-pointer"
               >
-                <div className="w-9 h-9 rounded-lg bg-purple-400/10 flex items-center justify-center mb-2 group-hover:bg-purple-400/20 transition-colors">
-                  <item.icon className="w-4.5 h-4.5 text-purple-400" />
-                </div>
-                <h3 className="text-xs font-semibold text-foreground leading-tight mb-0.5">{item.title}</h3>
-                <p className="text-[10px] text-muted-foreground leading-tight">{item.subtitle}</p>
-              </motion.a>
+                <FlipCard
+                  icon={item.icon}
+                  title={item.title}
+                  subtitle={item.subtitle}
+                  url={item.url}
+                  accentColor="purple"
+                />
+              </motion.div>
             ))}
           </div>
         </div>

@@ -36,7 +36,7 @@ const valueItems = [
     url: "https://sasesensai.paloaltonetworks.com/EBC2026/value/clara",
     subDemos: [
       { label: "CLARA Discovery", url: "https://sasesensai.paloaltonetworks.com/EBC2026/value/clara" },
-      { label: "CLARA Discovery", url: "https://sasesensai.paloaltonetworks.com/EBC2026/value/clara-benchmarking" },
+      { label: "CLARA Benchmarking", url: "https://sasesensai.paloaltonetworks.com/EBC2026/value/clara-benchmarking" },
     ],
   },
   {

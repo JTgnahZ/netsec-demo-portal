@@ -10,9 +10,9 @@ const valueItems = [
     subtitle: "Unified NetSec Platform",
     url: "https://sasesensai.paloaltonetworks.com/EBC2026/value/scm",
     subDemos: [
-      { label: "aaa", url: "https://sasesensai.paloaltonetworks.com/EBC2026/value/scm" },
-      { label: "Live Demo", url: "https://sasesensai.paloaltonetworks.com/EBC2026/value/scm" },
-      { label: "Use Cases", url: "https://sasesensai.paloaltonetworks.com/EBC2026/value/scm" },
+      { label: "Posture", url: "https://sasesensai.paloaltonetworks.com/EBC2026/value/scm" },
+      { label: "Compliance", url: "https://sasesensai.paloaltonetworks.com/EBC2026/value/scm" },
+      { label: "NetSec Health", url: "https://sasesensai.paloaltonetworks.com/EBC2026/value/scm" },
     ],
   },
   {
@@ -21,9 +21,9 @@ const valueItems = [
     subtitle: "Day 0 to Day N",
     url: "https://sasesensai.paloaltonetworks.com/EBC2026/value/sase",
     subDemos: [
-      { label: "Day 0 Setup", url: "https://sasesensai.paloaltonetworks.com/EBC2026/value/sase" },
-      { label: "Day N Operations", url: "https://sasesensai.paloaltonetworks.com/EBC2026/value/sase" },
-      { label: "Migration Guide", url: "https://sasesensai.paloaltonetworks.com/EBC2026/value/sase" },
+      { label: "Day 0 - Day N Journey", url: "https://sasesensai.paloaltonetworks.com/EBC2026/value/sase" },
+      { label: "Prisma Browser", url: "https://sasesensai.paloaltonetworks.com/EBC2026/value/sase" },
+      { label: "Prisma Agent", url: "https://sasesensai.paloaltonetworks.com/EBC2026/value/sase" },
     ],
   },
   {
@@ -32,20 +32,17 @@ const valueItems = [
     subtitle: "Cloud Network and AI Risk Assessment",
     url: "https://sasesensai.paloaltonetworks.com/EBC2026/value/clara",
     subDemos: [
-      { label: "Risk Assessment", url: "https://sasesensai.paloaltonetworks.com/EBC2026/value/clara" },
-      { label: "AI Analysis", url: "https://sasesensai.paloaltonetworks.com/EBC2026/value/clara" },
-      { label: "Cloud Coverage", url: "https://sasesensai.paloaltonetworks.com/EBC2026/value/clara" },
+      { label: "CLARA", url: "https://sasesensai.paloaltonetworks.com/EBC2026/value/clara" },
+      { label: "Cloud Firewall Benchmarking", url: "https://sasesensai.paloaltonetworks.com/EBC2026/value/clara" },
     ],
   },
   {
     icon: Globe,
-    title: "Secure AI Usage",
-    subtitle: "with Prisma Browser",
+    title: "MSF",
+    subtitle: "Multi-Cloud Security Fabric",
     url: "https://sasesensai.paloaltonetworks.com/EBC2026/value/pb",
     subDemos: [
-      { label: "Browser Security", url: "https://sasesensai.paloaltonetworks.com/EBC2026/value/pb" },
-      { label: "AI Access Control", url: "https://sasesensai.paloaltonetworks.com/EBC2026/value/pb" },
-      { label: "Threat Prevention", url: "https://sasesensai.paloaltonetworks.com/EBC2026/value/pb" },
+      { label: "MSF", url: "https://sasesensai.paloaltonetworks.com/EBC2026/value/pb" },
     ],
   },
   {
@@ -54,9 +51,10 @@ const valueItems = [
     subtitle: "Drive with Prisma AIRS",
     url: "https://sasesensai.paloaltonetworks.com/EBC2026/value/airs",
     subDemos: [
-      { label: "AI Security", url: "https://sasesensai.paloaltonetworks.com/EBC2026/value/airs" },
-      { label: "Runtime Protection", url: "https://sasesensai.paloaltonetworks.com/EBC2026/value/airs" },
-      { label: "Model Defense", url: "https://sasesensai.paloaltonetworks.com/EBC2026/value/airs" },
+      { label: "AI Model Security", url: "https://sasesensai.paloaltonetworks.com/EBC2026/value/airs" },
+      { label: "Red Teaming", url: "https://sasesensai.paloaltonetworks.com/EBC2026/value/airs" },
+      { label: "AI Runtime API", url: "https://sasesensai.paloaltonetworks.com/EBC2026/value/airs" },
+      { label: "AI Agent Security", url: "https://sasesensai.paloaltonetworks.com/EBC2026/value/airs" },
     ],
   },
   {
@@ -65,9 +63,7 @@ const valueItems = [
     subtitle: "Post-Quantum Cryptography",
     url: "https://sasesensai.paloaltonetworks.com/EBC2026/value/quantum",
     subDemos: [
-      { label: "PQC Overview", url: "https://sasesensai.paloaltonetworks.com/EBC2026/value/quantum" },
-      { label: "Key Exchange", url: "https://sasesensai.paloaltonetworks.com/EBC2026/value/quantum" },
-      { label: "Readiness Guide", url: "https://sasesensai.paloaltonetworks.com/EBC2026/value/quantum" },
+      { label: "Quantum-safe Security", url: "https://sasesensai.paloaltonetworks.com/EBC2026/value/quantum" },
     ],
   },
 ];

@@ -174,6 +174,7 @@ const ValueSection = () => {
                   subtitle={item.subtitle}
                   url={item.url}
                   accentColor="sky"
+                  subDemos={item.subDemos}
                 />
               </motion.div>
             ))}

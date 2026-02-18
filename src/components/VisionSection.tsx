@@ -151,8 +151,7 @@ const VisionSection = () => {
             <iframe
               src={IFRAME_URL}
               title="Vision Demo"
-              style={{ width: "166.67%", height: "866px", transform: "scale(0.6)", transformOrigin: "top left" }}
-              className="pointer-events-auto"
+              className="w-full h-full pointer-events-auto"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowFullScreen
             />
